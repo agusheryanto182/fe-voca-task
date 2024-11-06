@@ -103,9 +103,10 @@ const Login = () => {
           </div>
           <Button
             firstIcon={isFormFilled ? <FaCheck /> : <FaXmark />}
-            disabled={!isFormFilled || emailError}
+            disabled={!isFormFilled || emailError || passwordError}
             title={languageData.signIn}
-            className={`text-white bg-[var(--purple-dark)] ${isFormFilled && !emailError ? 'hover:bg-[var(--purple-light)] hover:text-[var(--text-purple-dark)]' : ''} flex justify-center align-center items-center gap-2`}
+            type="submit"
+            className={`text-white bg-[var(--purple-dark)] ${isFormFilled && !emailError && !passwordError ? 'hover:bg-[var(--purple-light)] hover:text-[var(--text-purple-dark)]' : ''} flex justify-center align-center items-center gap-2`}
           />
         </form>
       </div>

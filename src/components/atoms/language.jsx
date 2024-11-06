@@ -34,7 +34,7 @@ const options = [
             </div>
         ),
         flag: 'https://hatscripts.github.io/circle-flags/flags/id.svg',
-        name: 'Indonesian',
+        name: 'Indonesia',
     },
 ];
 

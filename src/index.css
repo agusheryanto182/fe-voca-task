@@ -3,17 +3,24 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg-dark-primary: #0d0613;
+  --bg-dark-secondary: #1d1824;
+  --purple-dark: #523c72;
+  --purple-light: #d9bdfe;
+  --text-purple-light: #9876c4;
+  --text-light-green: #79d2b1;
+  --text-grey-input: #77717a;
+  --border-purple: ##d1b5f5;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark-primary);
+  color: var(--text-purple-light);
+  font-family: "Poppins", sans-serif;
+}

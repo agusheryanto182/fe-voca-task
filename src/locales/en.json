@@ -1,0 +1,7 @@
+{
+  "emailPlaceholder": "Enter your email",
+  "passwordPlaceholder": "Enter your password",
+  "emailError": "Invalid email",
+  "passwordError": "Password must be at least 8 characters",
+  "signIn": "Sign In"
+}

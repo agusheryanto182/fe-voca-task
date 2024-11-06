@@ -1,0 +1,7 @@
+{
+  "emailPlaceholder": "Masukkan email",
+  "passwordPlaceholder": "Masukkan password",
+  "emailError": "Email tidak valid",
+  "passwordError": "Password minimal 8 karakter",
+  "signIn": "Masuk"
+}

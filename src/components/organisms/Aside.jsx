@@ -4,12 +4,12 @@ import OutIcon from '/src/assets/out.svg';
 import Avatar from '/src/assets/avatar.svg';
 import { TbSwitchHorizontal } from "react-icons/tb";
 
-function Aside({ colorSwitch, title, titleEdit, titleSignOut, switched, name, className, ...props }) {
-    console.log(colorSwitch)
+function Aside({ colorSwitch, titleSwitch, title, titleEdit, titleSignOut, switched, name, className, ...props }) {
     return (
         <aside className={`${className} w-[30%] h-[85%] bg-[var(--bg-dark-secondary)] rounded-2xl relative`} {...props}>
-            <div onClick={switched} className={`absolute text-2xl top-2 left-2 animate-spin ${colorSwitch} cursor-pointer`}>
-                <TbSwitchHorizontal />
+            <div onClick={switched} className={`${colorSwitch} absolute text-lg top-0 left-0  cursor-pointer bg-white rounded-tl-2xl rounded-br-2xl flex items-center justify-center gap-2 py-2 px-4`}>
+                <TbSwitchHorizontal className={`animate-spin `} />
+                <p className="text-sm font-semibold ">{titleSwitch}</p>
             </div>
 
             <div className="mt-8 mb-8 space-y-5 flex flex-col items-center justify-center w-full">

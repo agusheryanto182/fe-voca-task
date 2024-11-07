@@ -33,6 +33,7 @@ const Task = () => {
   return (
     <div className="max-w-[1200px] mx-auto flex items-center justify-center h-screen gap-4">
       <Aside
+        titleSwitch={languageData.switch}
         colorSwitch={switched ? 'text-[var(--text-light-green)]' : 'text-[rgb(240,72,184)]'}
         switched={handleSwitch}
         title={languageData.welcomeBack}

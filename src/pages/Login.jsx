@@ -3,6 +3,7 @@ import { Button, Logo, Form } from '../components/atoms';
 import { FaCheck, FaXmark } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { toast } from 'react-toastify';
 
 import en from '../locales/en.json';
 import id from '../locales/id.json';
@@ -47,6 +48,7 @@ const Login = () => {
       localStorage.setItem('email', email);
       localStorage.setItem('password', password);
       navigate('/');
+      toast.success(languageData.signedInSuccess);
     }
   };
 

@@ -7,6 +7,7 @@ import { TodoList } from '../components/molecules'
 import UseTodoData from '../utils/UseTodoData';
 import generateUUID from '../utils/GenerateUUID';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 import en from '../locales/en.json';
 import id from '../locales/id.json';
@@ -17,10 +18,18 @@ const Task = () => {
   const { language } = useLanguage();
   const [switched, setSwitched] = useState(false);
   const [todoTitle, setTodoTitle] = useState('');
+  const navigate = useNavigate();
 
   const languageData = language === 'id' ? id : en;
 
   const name = email.split('@')[0];
+
+  const handleLogout = () => {
+    localStorage.removeItem('email');
+    localStorage.removeItem('todoData');
+    toast.success(languageData.loggedOut);
+    navigate('/login');
+  }
 
   const handleDeleteTodo = (id) => {
     removeTodo(id, languageData.todoSuccessToDeleted);
@@ -59,6 +68,7 @@ const Task = () => {
   return (
     <div className="max-w-[1200px] mx-auto flex items-center justify-center h-screen gap-4">
       <Aside
+        handleLogout={handleLogout}
         titleSwitch={languageData.switch}
         colorSwitch={switched ? 'text-[var(--text-light-green)]' : 'text-[rgb(240,72,184)]'}
         switched={handleSwitch}

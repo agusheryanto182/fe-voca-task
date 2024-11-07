@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "To study React fundamentals 1",
-    "isDone": false,
+    "isDone": true,
     "createdAt": "2022-05-01T00:00:00.000Z"
   },
   {
@@ -14,7 +14,7 @@
   {
     "id": 3,
     "title": "To study React fundamentals 3",
-    "isDone": false,
+    "isDone": true,
     "createdAt": "2022-05-01T00:00:00.000Z"
   },
   {
@@ -26,7 +26,7 @@
   {
     "id": 5,
     "title": "To study React fundamentals 5",
-    "isDone": false,
+    "isDone": true,
     "createdAt": "2022-05-01T00:00:00.000Z"
   },
   {
@@ -38,6 +38,48 @@
   {
     "id": 7,
     "title": "To study React fundamentals 7",
+    "isDone": true,
+    "createdAt": "2022-05-01T00:00:00.000Z"
+  },
+  {
+    "id": 8,
+    "title": "To study React fundamentals 8",
+    "isDone": false,
+    "createdAt": "2022-05-01T00:00:00.000Z"
+  },
+  {
+    "id": 9,
+    "title": "To study React fundamentals 9",
+    "isDone": true,
+    "createdAt": "2022-05-01T00:00:00.000Z"
+  },
+  {
+    "id": 10,
+    "title": "To study React fundamentals 10",
+    "isDone": false,
+    "createdAt": "2022-05-01T00:00:00.000Z"
+  },
+  {
+    "id": 11,
+    "title": "To study React fundamentals 11",
+    "isDone": true,
+    "createdAt": "2022-05-01T00:00:00.000Z"
+  },
+  {
+    "id": 12,
+    "title": "To study React fundamentals 12",
+    "isDone": false,
+    "createdAt": "2022-05-01T00:00:00.000Z"
+  },
+  {
+    "id": 13,
+    "title": "To study React fundamentals 13",
+    "isDone": true,
+    "createdAt": "2022-05-01T00:00:00.000Z"
+  },
+  {
+    "id": 14,
+    "title": "To study React fundamentals 14",
     "isDone": false,
     "createdAt": "2022-05-01T00:00:00.000Z"
   }

@@ -16,5 +16,7 @@
   "todoIsDone": "Yeay Tugas Uudah Selesai >_<",
   "noTaskDone": "Beyum ada tugas yang selesai :(",
   "noTaskTodo": "Beyum ada tugas yang harus dilakukan :(",
-  "todoSuccessToDeleted": "Tugas berhasil dihapus"
+  "todoSuccessToDeleted": "Tugas berhasil dihapus",
+  "loggedOut": "Kamu telah keluar",
+  "signedInSuccess": "Yeay Berhasil Masuk"
 }

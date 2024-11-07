@@ -8,7 +8,7 @@
   "taskToDo": "Task to do",
   "welcomeBack": "Welcome Back",
   "editProfile": "Edit Profile",
-  "signOut": "Sign Out",
+  "signOut": "Log Out",
   "done": "Done",
   "switch": "Switch",
   "todoSuccessAdded": "Task successfully added",
@@ -16,5 +16,7 @@
   "todoIsDone": "Yeay Task Is Done >_<",
   "noTaskDone": "No task done :(",
   "noTaskTodo": "No task todo :(",
-  "todoSuccessToDeleted": "Task successfully deleted"
+  "todoSuccessToDeleted": "Task successfully deleted",
+  "loggedOut": "Logged out",
+  "signedInSuccess": "Signed in successfully"
 }

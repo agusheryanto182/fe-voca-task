@@ -3,5 +3,11 @@
   "passwordPlaceholder": "Enter your password",
   "emailError": "Invalid email",
   "passwordError": "Password must be at least 8 characters",
-  "signIn": "Sign In"
+  "signIn": "Sign In",
+  "addANewTask": "Add a new task",
+  "taskToDo": "Task to do",
+  "welcomeBack": "Welcome Back",
+  "editProfile": "Edit Profile",
+  "signOut": "Sign Out",
+  "done": "Done"
 }

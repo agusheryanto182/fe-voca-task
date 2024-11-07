@@ -3,5 +3,11 @@
   "passwordPlaceholder": "Masukkan password",
   "emailError": "Email tidak valid",
   "passwordError": "Password minimal 8 karakter",
-  "signIn": "Masuk"
+  "signIn": "Masuk",
+  "addANewTask": "Tambah tugas baru",
+  "taskToDo": "Tugas yang harus dilakukan",
+  "welcomeBack": "Selamat Datang Kembali",
+  "editProfile": "Edit Profil",
+  "signOut": "Keluar",
+  "done": "Selesai"
 }

@@ -1,6 +1,13 @@
-import Button from "./button";
-import Logo from "./logo";
-import Form from "./form";
-import Language from "./language";
+import Button from "./Button";
+import Logo from "./Logo";
+import Form from "./Form";
+import Language from "./Language";
+import Todo from "./Todo"
 
-export { Button, Logo, Form, Language }
+export {
+    Button,
+    Logo,
+    Form,
+    Language,
+    Todo
+}

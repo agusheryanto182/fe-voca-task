@@ -106,7 +106,7 @@ const Login = () => {
             disabled={!isFormFilled || emailError || passwordError}
             title={languageData.signIn}
             type="submit"
-            className={`text-white bg-[var(--purple-dark)] ${isFormFilled && !emailError && !passwordError ? 'hover:bg-[var(--purple-light)] hover:text-[var(--text-purple-dark)]' : ''} flex justify-center align-center items-center gap-2`}
+            className={`text-white w-full border-[var(--text-purple-light)] bg-[var(--purple-dark)] ${isFormFilled && !emailError && !passwordError ? 'hover:bg-[var(--purple-light)] hover:text-[var(--text-purple-dark)]' : ''} flex justify-center align-center items-center gap-2 p-2`}
           />
         </form>
       </div>

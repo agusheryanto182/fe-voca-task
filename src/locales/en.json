@@ -10,5 +10,11 @@
   "editProfile": "Edit Profile",
   "signOut": "Sign Out",
   "done": "Done",
-  "switch": "Switch"
+  "switch": "Switch",
+  "todoSuccessAdded": "Task successfully added",
+  "todoTitleShouldBeFilled": "Task title should be filled",
+  "todoIsDone": "Yeay Task Is Done >_<",
+  "noTaskDone": "No task done :(",
+  "noTaskTodo": "No task todo :(",
+  "todoSuccessToDeleted": "Task successfully deleted"
 }

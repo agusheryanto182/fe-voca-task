@@ -4,20 +4,46 @@ import { Aside } from '../components/organisms'
 import { AddTask, DoneTask } from '../components/molecules'
 import { useLanguage } from '../contexts/LanguageContext';
 import { TodoList } from '../components/molecules'
-
-import data from '../dummy/todolist.json';
+import UseTodoData from '../utils/UseTodoData';
+import generateUUID from '../utils/GenerateUUID';
+import { toast } from 'react-toastify';
 
 import en from '../locales/en.json';
 import id from '../locales/id.json';
 
 const Task = () => {
+  const { todoData, addTodo, removeTodo, addDone } = UseTodoData();
   const [email, setEmail] = useState('');
   const { language } = useLanguage();
   const [switched, setSwitched] = useState(false);
+  const [todoTitle, setTodoTitle] = useState('');
 
   const languageData = language === 'id' ? id : en;
 
   const name = email.split('@')[0];
+
+  const handleDeleteTodo = (id) => {
+    removeTodo(id, languageData.todoSuccessToDeleted);
+  }
+
+  const handleTodoTitle = (e) => {
+    setTodoTitle(e.target.value);
+  }
+
+  const handleAddTodo = (e) => {
+    e.preventDefault();
+    if (todoTitle.trim()) {
+      addTodo({ id: generateUUID(), title: todoTitle, isDone: false, createdAt: new Date() });
+      setTodoTitle('');
+      toast.success(languageData.todoSuccessAdded);
+    } else {
+      toast.error(languageData.todoTitleShouldBeFilled);
+    }
+  };
+
+  const handleAddDone = (id) => {
+    addDone(id, languageData.todoIsDone);
+  };
 
   const handleSwitch = () => {
     setSwitched((prevSwitched) => !prevSwitched);
@@ -44,25 +70,36 @@ const Task = () => {
       />
       <div className="w-[100%] h-[85%] rounded-2xl bg-[var(--bg-dark-secondary)] md:px-12 p-10">
         <AddTask
+          handleTodoTitle={handleTodoTitle}
+          onSubmit={handleAddTodo}
           placeholder={languageData.addANewTask}
           className="w-full"
         />
         {switched ? (
-          <div id='donelist' className="mt-8">
+          <div className="mt-8">
             <h1 className="text-white mb-4">
-              {languageData.done} - {data.length}
+              {languageData.done} - {todoData.filter((item) => item.isDone).length}
             </h1>
             <div className="h-[60vh] custom-scrollbar">
-              <DoneTask data={data} />
+              <DoneTask
+                data={todoData.filter((item) => item.isDone).sort((a, b) => b.createdAt - a.createdAt)}
+              />
+              {todoData.filter((item) => item.isDone).length === 0 && <p className="text-white font-bold text-center">{languageData.noTaskDone}</p>}
             </div>
           </div>
         ) : (
-          <div id='todolist' className="mt-8">
+          <div className="mt-8">
             <h1 className="text-white mb-4">
-              {languageData.taskToDo} - {data.length}
+              {languageData.taskToDo} - {todoData.filter((item) => !item.isDone).length}
             </h1>
             <div className="h-[60vh] custom-scrollbar">
-              <TodoList data={data} />
+              <TodoList
+                handleDeleteTodo={handleDeleteTodo}
+                handleDone={handleAddDone}
+                data={todoData
+                  .filter((item) => !item.isDone)}
+              />
+              {todoData.filter((item) => !item.isDone).length === 0 && <p className="text-white font-bold text-center">{languageData.noTaskTodo}</p>}
             </div>
           </div>
         )}

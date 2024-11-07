@@ -9,6 +9,12 @@
   "welcomeBack": "Selamat Datang Kembali",
   "editProfile": "Edit Profil",
   "signOut": "Keluar",
-  "done": "Selesai",
-  "switch": "Beralih"
+  "done": "Tugas Selesai",
+  "switch": "Beralih",
+  "todoSuccessAdded": "Tugas berhasil ditambahkan",
+  "todoTitleShouldBeFilled": "Judul tugas harus diisi",
+  "todoIsDone": "Yeay Tugas Uudah Selesai >_<",
+  "noTaskDone": "Beyum ada tugas yang selesai :(",
+  "noTaskTodo": "Beyum ada tugas yang harus dilakukan :(",
+  "todoSuccessToDeleted": "Tugas berhasil dihapus"
 }

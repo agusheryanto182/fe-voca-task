@@ -8,9 +8,7 @@ import UseTodoData from '../utils/UseTodoData';
 import generateUUID from '../utils/GenerateUUID';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-
-import en from '../locales/en.json';
-import id from '../locales/id.json';
+import ListOfLanguage from '../utils/ListOfLanguage';
 
 const Task = () => {
   const { todoData, addTodo, removeTodo, addDone } = UseTodoData();
@@ -20,7 +18,7 @@ const Task = () => {
   const [todoTitle, setTodoTitle] = useState('');
   const navigate = useNavigate();
 
-  const languageData = language === 'id' ? id : en;
+  const languageData = ListOfLanguage(language);
 
   const name = email.split('@')[0];
 
@@ -29,6 +27,10 @@ const Task = () => {
     localStorage.removeItem('todoData');
     toast.success(languageData.loggedOut);
     navigate('/login');
+  }
+
+  const handleUpdateProfile = () => {
+    navigate('/update-profile');
   }
 
   const handleDeleteTodo = (id) => {
@@ -68,6 +70,7 @@ const Task = () => {
   return (
     <div className="max-w-[1200px] mx-auto flex items-center justify-center h-screen gap-4">
       <Aside
+        handleUpdateProfile={handleUpdateProfile}
         handleLogout={handleLogout}
         titleSwitch={languageData.switch}
         colorSwitch={switched ? 'text-[var(--text-light-green)]' : 'text-[rgb(240,72,184)]'}

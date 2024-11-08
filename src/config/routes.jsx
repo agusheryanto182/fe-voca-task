@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Login, Task } from "../pages";
+import { Login, Task, UpdateProfile } from "../pages";
 import { MainLayout } from "../components";
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -17,6 +17,14 @@ export const routes = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <Task />
+          </ProtectedRoute>
+        )
+      },
+      {
+        path: "/update-profile",
+        element: (
+          <ProtectedRoute>
+            <UpdateProfile />
           </ProtectedRoute>
         )
       }

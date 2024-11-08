@@ -1,6 +1,8 @@
 {
   "emailPlaceholder": "Masukkan email",
   "passwordPlaceholder": "Masukkan password",
+  "namePlaceholder": "Masukkan nama",
+  "imageURLPlaceholder": "Masukkan URL Gambar",
   "emailError": "Email tidak valid",
   "passwordError": "Password minimal 8 karakter",
   "signIn": "Masuk",
@@ -18,5 +20,10 @@
   "noTaskTodo": "Beyum ada tugas yang harus dilakukan :(",
   "todoSuccessToDeleted": "Tugas berhasil dihapus",
   "loggedOut": "Kamu telah keluar",
-  "signedInSuccess": "Yeay Berhasil Masuk"
+  "signedInSuccess": "Yeay Berhasil Masuk",
+  "profileURL": "URL Profil",
+  "name": "Nama",
+  "email": "Email",
+  "password": "Kata Sandi",
+  "submit": "Kirim"
 }

@@ -1,6 +1,8 @@
 {
   "emailPlaceholder": "Enter your email",
   "passwordPlaceholder": "Enter your password",
+  "namePlaceholder": "Enter your name",
+  "imageURLPlaceholder": "Enter your image URL",
   "emailError": "Invalid email",
   "passwordError": "Password must be at least 8 characters",
   "signIn": "Sign In",
@@ -18,5 +20,10 @@
   "noTaskTodo": "No task todo :(",
   "todoSuccessToDeleted": "Task successfully deleted",
   "loggedOut": "Logged out",
-  "signedInSuccess": "Signed in successfully"
+  "signedInSuccess": "Signed in successfully",
+  "profileURL": "Profile URL",
+  "name": "Name",
+  "email": "Email",
+  "password": "Password",
+  "submit": "Submit"
 }

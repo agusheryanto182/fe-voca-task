@@ -4,9 +4,7 @@ import { FaCheck, FaXmark } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { toast } from 'react-toastify';
-
-import en from '../locales/en.json';
-import id from '../locales/id.json';
+import ListOfLanguage from '../utils/ListOfLanguage';
 
 const Login = () => {
   const { language } = useLanguage();
@@ -18,7 +16,7 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState('');
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  const languageData = language === 'id' ? id : en;
+  const languageData = ListOfLanguage(language);
 
   const handleEmailChange = (e) => {
     const value = e.target.value;
@@ -64,7 +62,7 @@ const Login = () => {
         </div>
         <form onSubmit={handleSubmit} className="mt-8">
           <div className='mb-4'>
-            <Form title="Email">
+            <Form title={languageData.email}>
               <div className="relative flex items-center">
                 <input
                   type="email"
@@ -84,7 +82,7 @@ const Login = () => {
             </Form>
           </div>
           <div className='mb-8'>
-            <Form title="Password">
+            <Form title={languageData.password}>
               <div className='relative'>
                 <input
                   type="password"

@@ -25,5 +25,7 @@
   "name": "Name",
   "email": "Email",
   "password": "Password",
-  "submit": "Submit"
+  "submit": "Submit",
+  "todo": "Task",
+  "done": "Done"
 }

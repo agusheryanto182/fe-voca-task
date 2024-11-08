@@ -68,7 +68,7 @@ const Login = () => {
                   type="email"
                   value={email}
                   onChange={handleEmailChange}
-                  className="bg-transparent border border-[var(--text-purple-light)] p-2 rounded-lg text-[var(--text-grey-input)] w-full"
+                  className=" bg-transparent border border-[var(--text-purple-light)] py-2 px-3 rounded-lg text-[var(--text-grey-input)] w-full"
                   placeholder={languageData.emailPlaceholder}
                   required
                 />
@@ -88,7 +88,7 @@ const Login = () => {
                   type="password"
                   value={password}
                   onChange={handlePasswordChange}
-                  className="bg-transparent border border-[var(--text-purple-light)] p-2 rounded-lg text-[var(--text-grey-input)] w-full"
+                  className="bg-transparent border border-[var(--text-purple-light)] py-2 px-3 rounded-lg text-[var(--text-grey-input)] w-full"
                   placeholder={languageData.passwordPlaceholder}
                   required
                 />

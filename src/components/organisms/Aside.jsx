@@ -7,9 +7,9 @@ import { TbSwitchHorizontal } from "react-icons/tb";
 function Aside({ handleUpdateProfile, handleLogout, colorSwitch, titleSwitch, title, titleEdit, titleSignOut, switched, name, className, ...props }) {
     return (
         <aside className={`${className} w-[30%] h-[85%] bg-[var(--bg-dark-secondary)] rounded-2xl relative`} {...props}>
-            <div onClick={switched} className={`${colorSwitch} absolute text-lg top-0 left-0  cursor-pointer bg-white rounded-tl-2xl rounded-br-2xl flex items-center justify-center gap-2 py-2 px-4`}>
+            <div onClick={switched} className={`${colorSwitch} absolute text-lg top-0 left-0  cursor-pointer bg-white rounded-tl-2xl rounded-br-2xl flex items-center justify-center gap-2 px-6 py-2`}>
                 <TbSwitchHorizontal className={`animate-spin `} />
-                <p className="text-sm font-semibold ">{titleSwitch}</p>
+                <p className="text-sm font-semibold uppercase">{titleSwitch}</p>
             </div>
 
             <div className="mt-8 mb-8 space-y-5 flex flex-col items-center justify-center w-full">

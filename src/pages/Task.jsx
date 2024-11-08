@@ -72,7 +72,7 @@ const Task = () => {
       <Aside
         handleUpdateProfile={handleUpdateProfile}
         handleLogout={handleLogout}
-        titleSwitch={languageData.switch}
+        titleSwitch={switched ? languageData.done : languageData.todo}
         colorSwitch={switched ? 'text-[var(--text-light-green)]' : 'text-[rgb(240,72,184)]'}
         switched={handleSwitch}
         title={languageData.welcomeBack}

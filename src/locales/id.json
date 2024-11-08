@@ -25,5 +25,7 @@
   "name": "Nama",
   "email": "Email",
   "password": "Kata Sandi",
-  "submit": "Kirim"
+  "submit": "Kirim",
+  "todo": "Tugas",
+  "done": "Selesai"
 }

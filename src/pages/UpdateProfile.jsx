@@ -17,8 +17,8 @@ const UpdateProfile = () => {
   }
 
   return (
-    <div className="w-full md:max-w-[1200px] mt-16 mx-auto flex items-center justify-center h-screen">
-      <div className="w-full md:w-[50%] h-full flex flex-col items-center justify-center rounded-2xl bg-[var(--bg-dark-secondary)] px-14 py-8">
+    <div className="w-full md:max-w-[1200px] mx-auto flex items-center justify-center h-screen">
+      <div className="w-full md:w-[50%] h-full flex flex-col items-center justify-center rounded-2xl bg-[var(--bg-dark-secondary)] px-14 py-6">
         <div onClick={handlePrevURL} className="flex w-full items-center gap-4 cursor-pointer">
           <img src={ArrowIcon} alt="arrow" className="w-6 h-6 cursor-pointer" />
           <div className="text-xl font-semibold text-white">Edit Profile</div>

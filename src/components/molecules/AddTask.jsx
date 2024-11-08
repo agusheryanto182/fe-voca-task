@@ -1,7 +1,7 @@
 import { Form, Button } from "../atoms";
 import IconPlus from '/src/assets/plus.svg';
 
-function AddTask({ handleTodoTitle, onSubmit, placeholder, className, ...props }) {
+function AddTask({ currTitle, handleTodoTitle, onSubmit, placeholder, className, ...props }) {
     return (
         <div className={`${className}`} {...props}>
             <Form
@@ -12,6 +12,7 @@ function AddTask({ handleTodoTitle, onSubmit, placeholder, className, ...props }
                         type="text"
                         placeholder={placeholder}
                         onChange={handleTodoTitle}
+                        value={currTitle}
                         className="text-[var(--text-grey-input)] bg-transparent border border-[var(--purple-semi-light)] py-3 px-4 rounded-lg w-full"
                     />
                     <Button

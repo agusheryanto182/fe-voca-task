@@ -152,6 +152,7 @@ const Task = () => {
             </div>
           )}
           <AddTask
+            currTitle={todoTitle}
             handleTodoTitle={handleTodoTitle}
             onSubmit={handleAddTodo}
             placeholder={languageData.addANewTask}

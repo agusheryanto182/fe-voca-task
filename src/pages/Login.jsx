@@ -68,7 +68,7 @@ const Login = () => {
                   type="email"
                   value={email}
                   onChange={handleEmailChange}
-                  className=" bg-transparent border border-[var(--text-purple-light)] py-2 px-3 rounded-lg text-[var(--text-grey-input)] w-full"
+                  className=" bg-[var(--bg-primary)] border border-[var(--text-purple-light)] py-2 px-3 rounded-lg text-[var(--text-grey-input)] w-full"
                   placeholder={languageData.emailPlaceholder}
                   required
                 />
@@ -88,7 +88,7 @@ const Login = () => {
                   type="password"
                   value={password}
                   onChange={handlePasswordChange}
-                  className="bg-transparent border border-[var(--text-purple-light)] py-2 px-3 rounded-lg text-[var(--text-grey-input)] w-full"
+                  className="bg-[var(--bg-primary)] border border-[var(--text-purple-light)] py-2 px-3 rounded-lg text-[var(--text-grey-input)] w-full"
                   placeholder={languageData.passwordPlaceholder}
                   required
                 />
@@ -106,7 +106,7 @@ const Login = () => {
             disabled={!isFormFilled || emailError || passwordError}
             title={languageData.signIn}
             type="submit"
-            className={`text-white w-full border-[var(--text-purple-light)] bg-[var(--purple-dark)] ${isFormFilled && !emailError && !passwordError ? 'hover:bg-[var(--purple-light)] hover:text-[var(--text-purple-dark)]' : ''} flex justify-center align-center items-center gap-2 p-2`}
+            className={`text-white w-full border-[var(--text-purple-light)] bg-[var(--purple-dark)] ${isFormFilled && !emailError && !passwordError ? 'hover:bg-[var(--bg-primary)] hover:text-[var(--text-purple-dark)]' : ''} flex justify-center align-center items-center gap-2 p-2`}
           />
         </form>
       </div>

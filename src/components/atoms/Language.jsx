@@ -48,7 +48,7 @@ function Language({ language, setLanguage }) {
     const currentLanguage = options.find((option) => option.value === language);
 
     return (
-        <div className="flex justify-end items-center p-4 fixed top-0 right-0">
+        <div className="flex justify-end items-center fixed top-0 right-0 z-10">
             <Select
                 options={options}
                 value={currentLanguage}

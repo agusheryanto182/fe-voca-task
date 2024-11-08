@@ -30,16 +30,10 @@ body {
 }
 
 .custom-scrollbar {
-  /* max-height: auto; */
+  max-height: auto;
   overflow-y: auto;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 0px;
 }
-
-/* @media screen and (max-width: 768px) {
-  .custom-scrollbar {
-    max-height: 100px;
-  }
-} */

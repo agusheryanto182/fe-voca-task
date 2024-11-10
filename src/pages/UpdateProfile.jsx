@@ -61,7 +61,7 @@ const UpdateProfile = () => {
               title={languageData.password}
             >
               <input
-                type="text"
+                type="password"
                 className="text-[var(--text-grey-input)] bg-transparent border border-[var(--purple-semi-light)] py-3 px-4 rounded-lg w-full"
                 placeholder={languageData.passwordPlaceholder}
               />

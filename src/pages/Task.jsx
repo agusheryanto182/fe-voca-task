@@ -11,10 +11,12 @@ import { useNavigate } from 'react-router-dom';
 import ListOfLanguage from '../utils/ListOfLanguage';
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { TbSwitchHorizontal } from "react-icons/tb";
+import UseUserData from "../utils/UseUserData";
 
 
 const Task = () => {
   const { todoData, addTodo, removeTodo, addDone } = UseTodoData();
+  const { clearUserData } = UseUserData();
   const [email, setEmail] = useState('');
   const { language } = useLanguage();
   const [switched, setSwitched] = useState(false);
@@ -31,7 +33,7 @@ const Task = () => {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem('email');
+    clearUserData();
     localStorage.removeItem('todoData');
     toast.success(languageData.loggedOut);
     navigate('/login');

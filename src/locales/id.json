@@ -1,6 +1,6 @@
 {
   "emailPlaceholder": "Masukkan email",
-  "passwordPlaceholder": "Masukkan password",
+  "passwordPlaceholder": "Masukkan password baru",
   "namePlaceholder": "Masukkan nama",
   "imageURLPlaceholder": "Masukkan URL Gambar",
   "emailError": "Email tidak valid",
@@ -31,5 +31,6 @@
   "badRequestError": "Terjadi Kesalahan",
   "signedInError": "Gagal Masuk",
   "taskIsNotFound": "Tugas Tidak Ditemukan",
-  "somethingError": "Terjadi Kesalahan"
+  "somethingError": "Terjadi Kesalahan",
+  "updateProfileSuccess": "Profil Berhasil Diubah"
 }

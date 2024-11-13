@@ -1,6 +1,6 @@
 {
   "emailPlaceholder": "Enter your email",
-  "passwordPlaceholder": "Enter your password",
+  "passwordPlaceholder": "Enter your new password",
   "namePlaceholder": "Enter your name",
   "imageURLPlaceholder": "Enter your image URL",
   "emailError": "Invalid email",
@@ -31,5 +31,6 @@
   "badRequestError": "Something Error",
   "signedInError": "Signed In Error",
   "taskIsNotFound": "Task Is Not Found",
-  "somethingError": "Something Error"
+  "somethingError": "Something Error",
+  "updateProfileSuccess": "Update Profile Success"
 }

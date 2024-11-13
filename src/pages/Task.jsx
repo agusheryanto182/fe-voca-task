@@ -13,7 +13,7 @@ import ClearStorage from "../utils/ClearStorage";
 import { fetchTasks, createTask, updateTask, deleteTask, fetchUsers } from "../api/api"
 
 const Task = () => {
-  const [name, setName] = useState('');
+  const [userData, setUserData] = useState();
   const { language } = useLanguage();
   const [switched, setSwitched] = useState(false);
   const [todoTitle, setTodoTitle] = useState('');
@@ -32,7 +32,7 @@ const Task = () => {
       const response = await fetchTasks();
       const userData = await fetchUsers();
       setTodoData(response.data.data)
-      setName(userData.data.data.name)
+      setUserData(userData.data.data)
     } catch (error) {
       toast.error(languageData.somethingError)
     }
@@ -113,12 +113,13 @@ const Task = () => {
     <div className="max-w-full md:max-w-[1200px] mx-auto flex items-center justify-center h-screen gap-4">
       <div className='w-[30vw] h-[85vh] hidden md:block'>
         <Aside
+          avatar={userData?.photo_url}
           handleUpdateProfile={handleUpdateProfile}
           handleLogout={handleLogout}
           title={languageData.welcomeBack}
           titleEdit={languageData.editProfile}
           titleSignOut={languageData.signOut}
-          name={name}
+          name={userData?.name || 'anonymous'}
           className="flex flex-col items-center justify-center w-full h-full"
         />
       </div>
@@ -147,11 +148,12 @@ const Task = () => {
           <div className="md:hidden block w-[70vw] h-[80vh] absolute top-0 left-0 ">
             <Aside
               handleUpdateProfile={handleUpdateProfile}
+              avatar={userData?.photo_url}
               handleLogout={handleLogout}
               title={languageData.welcomeBack}
               titleEdit={languageData.editProfile}
               titleSignOut={languageData.signOut}
-              name={name}
+              name={userData?.name || 'anonymous'}
               className="flex flex-col items-center justify-center w-full h-full"
             />
           </div>

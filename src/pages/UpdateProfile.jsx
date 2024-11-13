@@ -72,7 +72,7 @@ const UpdateProfile = () => {
         </div>
 
         <div className='flex items-center justify-center mt-8 w-full'>
-          <img src={userData.photo_url}
+          <img src={userData?.photo_url}
             alt="Avatar" className="w-28 h-28 rounded-full"
             onError={(e) => e.target.src = Avatar}
           />

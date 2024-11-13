@@ -3,11 +3,14 @@ import PenIcon from '/src/assets/pen.svg';
 import OutIcon from '/src/assets/out.svg';
 import Avatar from '/src/assets/avatar.svg';
 
-function Aside({ handleUpdateProfile, handleLogout, title, titleEdit, titleSignOut, name, className, ...props }) {
+function Aside({ avatar, handleUpdateProfile, handleLogout, title, titleEdit, titleSignOut, name, className, ...props }) {
     return (
         <aside className={`${className}  bg-[var(--bg-dark-secondary)] rounded-2xl relative`} {...props}>
             <div className="mt-8 mb-8 space-y-5 flex flex-col items-center justify-center w-full">
-                <img src={Avatar} alt="avatar" className="w-[100px] h-[100px] rounded-full" />
+                <img src={avatar}
+                    alt="Avatar" className="w-28 h-28 rounded-full"
+                    onError={(e) => e.target.src = Avatar}
+                />
                 <div className="text-center max-w-[80%]">
                     <p className="text-white">{title}</p>
                     <p className="text-white font-bold break-words">

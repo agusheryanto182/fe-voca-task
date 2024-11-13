@@ -7,8 +7,8 @@ function TodoList({ handleDeleteTodo, handleDone, className, data, ...props }) {
         <div className={`${className}`} {...props}>
             {data.map((item) => (
                 <Todo
-                    key={item.id}
-                    id={item.id}
+                    key={item._id}
+                    id={item._id}
                     title={item.title}
                     className="w-full bg-[var(--bg-dark-p1)] p-6 rounded-lg my-4"
                     firstIcon={CheckIcon}

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { toast } from 'react-toastify';
 import ListOfLanguage from '../utils/ListOfLanguage';
+import { loginUser } from "../api/api";
 
 const Login = () => {
   const { language } = useLanguage();
@@ -40,13 +41,24 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isFormFilled && emailError === '') {
-      localStorage.setItem('email', email);
-      localStorage.setItem('password', password);
-      navigate('/');
-      toast.success(languageData.signedInSuccess);
+    if (isFormFilled && emailError === '' && passwordError === '') {
+      try {
+        const response = await loginUser({ email, password });
+        const token = response.data.data.token;
+        localStorage.setItem('token', token)
+        navigate('/');
+        toast.success(languageData.signedInSuccess);
+      } catch (error) {
+        if (error.response && error.response.status === 404 || error.response.status === 401) {
+          toast.error(languageData.notFoundAccountError);
+        } else if (error.response && error.response.status === 400) {
+          toast.error(languageData.badRequestError);
+        } else {
+          toast.error(languageData.signedInError);
+        }
+      }
     }
   };
 

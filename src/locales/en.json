@@ -27,5 +27,9 @@
   "password": "Password",
   "submit": "Submit",
   "todo": "Task",
-  "done": "Done"
+  "notFoundAccountError": "Your account is not found",
+  "badRequestError": "Something Error",
+  "signedInError": "Signed In Error",
+  "taskIsNotFound": "Task Is Not Found",
+  "somethingError": "Something Error"
 }

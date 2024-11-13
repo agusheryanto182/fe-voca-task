@@ -4,37 +4,46 @@ import { Aside } from '../components/organisms'
 import { AddTask, DoneTask } from '../components/molecules'
 import { useLanguage } from '../contexts/LanguageContext';
 import { TodoList } from '../components/molecules'
-import UseTodoData from '../utils/UseTodoData';
-import generateUUID from '../utils/GenerateUUID';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import ListOfLanguage from '../utils/ListOfLanguage';
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { TbSwitchHorizontal } from "react-icons/tb";
-import UseUserData from "../utils/UseUserData";
-
+import ClearStorage from "../utils/ClearStorage";
+import { fetchTasks, createTask, updateTask, deleteTask, fetchUsers } from "../api/api"
 
 const Task = () => {
-  const { todoData, addTodo, removeTodo, addDone } = UseTodoData();
-  const { clearUserData } = UseUserData();
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const { language } = useLanguage();
   const [switched, setSwitched] = useState(false);
   const [todoTitle, setTodoTitle] = useState('');
   const [bar, setBar] = useState(false);
   const navigate = useNavigate();
+  const [todoData, setTodoData] = useState([]);
 
   const languageData = ListOfLanguage(language);
 
-  const name = email.split('@')[0];
+  useEffect(() => {
+    loadData()
+  }, []);
+
+  const loadData = async () => {
+    try {
+      const response = await fetchTasks();
+      const userData = await fetchUsers();
+      setTodoData(response.data.data)
+      setName(userData.data.data.name)
+    } catch (error) {
+      toast.error(languageData.somethingError)
+    }
+  }
 
   const handleClickBar = () => {
     setBar((prevBar) => !prevBar);
   }
 
   const handleLogout = () => {
-    clearUserData();
-    localStorage.removeItem('todoData');
+    ClearStorage();
     toast.success(languageData.loggedOut);
     navigate('/login');
   }
@@ -43,39 +52,62 @@ const Task = () => {
     navigate('/update-profile');
   }
 
-  const handleDeleteTodo = (id) => {
-    removeTodo(id, languageData.todoSuccessToDeleted);
+  const handleDeleteTodo = async (id) => {
+    try {
+      await deleteTask(id);
+      setTodoData((prevTodoData) => prevTodoData.filter((task) => task._id !== id));
+      toast.success(languageData.todoSuccessToDeleted);
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        toast.error(languageData.taskIsNotFound);
+      } else {
+        toast.error(languageData.somethingError);
+      }
+    }
   }
 
   const handleTodoTitle = (e) => {
     setTodoTitle(e.target.value);
   }
 
-  const handleAddTodo = (e) => {
+  const handleAddTodo = async (e) => {
     e.preventDefault();
-    if (todoTitle.trim()) {
-      addTodo({ id: generateUUID(), title: todoTitle, isDone: false, createdAt: new Date() });
-      setTodoTitle('');
-      toast.success(languageData.todoSuccessAdded);
-    } else {
-      toast.error(languageData.todoTitleShouldBeFilled);
+    try {
+      if (todoTitle.trim()) {
+
+        const task = {
+          title: todoTitle
+        }
+
+        const response = await createTask(task);
+        setTodoTitle('');
+        setTodoData((prevTodoData) => [...prevTodoData, response.data.data]);
+        toast.success(languageData.todoSuccessAdded);
+      } else {
+        toast.error(languageData.todoTitleShouldBeFilled);
+      }
+    } catch (error) {
+      toast.error(languageData.somethingError);
     }
   };
 
-  const handleAddDone = (id) => {
-    addDone(id, languageData.todoIsDone);
+  const handleAddDone = async (id) => {
+    try {
+      await updateTask(id)
+      loadData();
+      toast.success(languageData.todoIsDone)
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        toast.error(languageData.taskIsNotFound);
+      } else {
+        toast.error(languageData.somethingError);
+      }
+    }
   };
 
   const handleSwitch = () => {
     setSwitched((prevSwitched) => !prevSwitched);
   }
-
-  useEffect(() => {
-    const storedEmail = localStorage.getItem('email');
-    if (storedEmail) {
-      setEmail(storedEmail);
-    }
-  }, []);
 
   return (
     <div className="max-w-full md:max-w-[1200px] mx-auto flex items-center justify-center h-screen gap-4">
@@ -132,7 +164,7 @@ const Task = () => {
               </h1>
               <div className="h-[60vh] custom-scrollbar">
                 <DoneTask
-                  data={todoData.filter((item) => item.isDone).sort((a, b) => b.createdAt - a.createdAt)}
+                  data={todoData.filter((item) => item.isDone).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))}
                 />
                 {todoData.filter((item) => item.isDone).length === 0 && <p className="text-white font-bold text-center">{languageData.noTaskDone}</p>}
               </div>
@@ -147,7 +179,7 @@ const Task = () => {
                   handleDeleteTodo={handleDeleteTodo}
                   handleDone={handleAddDone}
                   data={todoData
-                    .filter((item) => !item.isDone)}
+                    .filter((item) => !item.isDone).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))}
                 />
                 {todoData.filter((item) => !item.isDone).length === 0 && <p className="text-white font-bold text-center">{languageData.noTaskTodo}</p>}
               </div>

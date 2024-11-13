@@ -15,7 +15,7 @@
   "switch": "Beralih",
   "todoSuccessAdded": "Tugas berhasil ditambahkan",
   "todoTitleShouldBeFilled": "Judul tugas harus diisi",
-  "todoIsDone": "Yeay Tugas Uudah Selesai >_<",
+  "todoIsDone": "Yeay Tugas Udah Selesai >_<",
   "noTaskDone": "Beyum ada tugas yang selesai :(",
   "noTaskTodo": "Beyum ada tugas yang harus dilakukan :(",
   "todoSuccessToDeleted": "Tugas berhasil dihapus",
@@ -27,5 +27,9 @@
   "password": "Kata Sandi",
   "submit": "Kirim",
   "todo": "Tugas",
-  "done": "Selesai"
+  "notFoundAccountError": "Akun Tidak Ditemukan",
+  "badRequestError": "Terjadi Kesalahan",
+  "signedInError": "Gagal Masuk",
+  "taskIsNotFound": "Tugas Tidak Ditemukan",
+  "somethingError": "Terjadi Kesalahan"
 }

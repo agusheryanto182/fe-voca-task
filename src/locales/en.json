@@ -4,7 +4,7 @@
   "namePlaceholder": "Enter your name",
   "imageURLPlaceholder": "Enter your image URL",
   "emailError": "Invalid email",
-  "passwordError": "Password must be at least 8 characters",
+  "passwordError": "Password should be filled",
   "signIn": "Sign In",
   "addANewTask": "Add a new task",
   "taskToDo": "Task to do",

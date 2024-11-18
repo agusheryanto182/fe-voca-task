@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Logo, Form } from '../components/atoms';
+import React, { useEffect, useState } from "react";
+import { Button, Logo, Form } from "../components/atoms";
 import { FaCheck, FaXmark } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
-import { useLanguage } from '../contexts/LanguageContext';
-import { toast } from 'react-toastify';
-import ListOfLanguage from '../utils/ListOfLanguage';
+import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../contexts/LanguageContext";
+import { toast } from "react-toastify";
+import ListOfLanguage from "../utils/ListOfLanguage";
 import { loginUser } from "../api/api";
 
 const Login = () => {
   const { language } = useLanguage();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isFormFilled, setIsFormFilled] = useState(false);
   const navigate = useNavigate();
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   const languageData = ListOfLanguage(language);
@@ -23,10 +23,10 @@ const Login = () => {
     const value = e.target.value;
     setEmail(value);
 
-    if (value !== '' && !emailRegex.test(value)) {
+    if (value !== "" && !emailRegex.test(value)) {
       setEmailError(languageData.emailError);
     } else {
-      setEmailError('');
+      setEmailError("");
     }
   };
 
@@ -34,24 +34,27 @@ const Login = () => {
     const value = e.target.value;
     setPassword(value);
 
-    if (value !== '' && value.length < 8) {
+    if (value === "") {
       setPasswordError(languageData.passwordError);
     } else {
-      setPasswordError('');
+      setPasswordError("");
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isFormFilled && emailError === '' && passwordError === '') {
+    if (isFormFilled && emailError === "" && passwordError === "") {
       try {
         const response = await loginUser({ email, password });
         const token = response.data.data.token;
-        localStorage.setItem('token', token)
-        navigate('/');
+        localStorage.setItem("token", token);
+        navigate("/");
         toast.success(languageData.signedInSuccess);
       } catch (error) {
-        if (error.response && error.response.status === 404 || error.response.status === 401) {
+        if (
+          (error.response && error.response.status === 404) ||
+          error.response.status === 401
+        ) {
           toast.error(languageData.notFoundAccountError);
         } else if (error.response && error.response.status === 400) {
           toast.error(languageData.badRequestError);
@@ -63,7 +66,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    setIsFormFilled(email !== '' && password !== '');
+    setIsFormFilled(email !== "" && password !== "");
   }, [email, password]);
 
   return (
@@ -73,7 +76,7 @@ const Login = () => {
           <Logo />
         </div>
         <form onSubmit={handleSubmit} className="mt-8">
-          <div className='mb-4'>
+          <div className="mb-4">
             <Form title={languageData.email}>
               <div className="relative flex items-center">
                 <input
@@ -93,9 +96,9 @@ const Login = () => {
               )}
             </Form>
           </div>
-          <div className='mb-8'>
+          <div className="mb-8">
             <Form title={languageData.password}>
-              <div className='relative'>
+              <div className="relative">
                 <input
                   type="password"
                   value={password}
@@ -118,7 +121,11 @@ const Login = () => {
             disabled={!isFormFilled || emailError || passwordError}
             title={languageData.signIn}
             type="submit"
-            className={`text-white w-full border-[var(--text-purple-light)] bg-[var(--purple-dark)] ${isFormFilled && !emailError && !passwordError ? 'hover:bg-[var(--bg-primary)] hover:text-[var(--text-purple-dark)]' : ''} flex justify-center align-center items-center gap-2 p-2`}
+            className={`text-white w-full border-[var(--text-purple-light)] bg-[var(--purple-dark)] ${
+              isFormFilled && !emailError && !passwordError
+                ? "hover:bg-[var(--bg-primary)] hover:text-[var(--text-purple-dark)]"
+                : ""
+            } flex justify-center align-center items-center gap-2 p-2`}
           />
         </form>
       </div>

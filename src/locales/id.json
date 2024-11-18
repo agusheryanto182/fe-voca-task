@@ -4,7 +4,7 @@
   "namePlaceholder": "Masukkan nama",
   "imageURLPlaceholder": "Masukkan URL Gambar",
   "emailError": "Email tidak valid",
-  "passwordError": "Password minimal 8 karakter",
+  "passwordError": "Password harus terisi",
   "signIn": "Masuk",
   "addANewTask": "Tambah tugas baru",
   "taskToDo": "Tugas saat ini",
